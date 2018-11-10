@@ -16,8 +16,8 @@
 - [ ] Issue template
 
 ### Docker support
-- [ ] Dockerfile
-- [ ] Docker Compose
+- [X] Dockerfile
+- [X] Docker Compose
 
 ### Scripts
 - [ ] Makefile
