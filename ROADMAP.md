@@ -41,9 +41,12 @@
 - [ ] Install python
 - [ ] Trigger endpoint to get node
 - [ ] Store node id as property of user
+- [ ] Query nearest stations (GPS)
 
 ### Automation
 - [ ] Natural language to query
 - [ ] Query to search
 - [ ] Reponse is the combination of most relevent data
 - [ ] SQL query to natural language
+
+

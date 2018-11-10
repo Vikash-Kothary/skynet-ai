@@ -1,0 +1,30 @@
+intents:
+  - greet
+  - goodbye
+  - query_next_station
+  - mood_deny
+  - mood_great
+  - mood_unhappy
+
+actions:
+- utter_greet
+- utter_next_station
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+
+templates:
+  utter_greet:
+  - text: "Hey! What can I help you with?"
+
+  utter_next_station:
+  - text: "The next station is Kings Cross St Pancras"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great carry on!"
+
+  utter_goodbye:
+  - text: "Bye"

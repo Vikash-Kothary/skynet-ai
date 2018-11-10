@@ -1,0 +1,36 @@
+%YAML 1.1
+---
+actions:
+- utter_greet
+- utter_next_station
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+config:
+  store_entities_as_slots: true
+entities: []
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- query_next_station:
+    use_entities: true
+- mood_deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+slots: {}
+templates:
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - text: Hey! What can I help you with?
+  utter_happy:
+  - text: Great carry on!
+  utter_next_station:
+  - text: The next station is Kings Cross St Pancras
