@@ -20,7 +20,7 @@
 - [X] Docker Compose
 
 ### Scripts
-- [ ] Makefile
+- [X] Makefile
 
 ## Minimum Viable Product v0.0.0
 
