@@ -29,3 +29,7 @@ tests: run
 clear-docker:
 	@echo 'Clear all docker images'
 	sh scripts/clear_docker.sh > /dev/null
+
+url:
+	@echo 'Get url for local server'
+	sh scripts/get_ngrok_url.sh
