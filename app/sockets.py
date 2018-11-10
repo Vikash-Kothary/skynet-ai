@@ -5,6 +5,7 @@ sockets.py - socketsio
 
 
 from flask_socketio import SocketIO, emit
+from flask import request
 from app import app
 
 socketio = SocketIO(app)
@@ -13,10 +14,12 @@ def messageReceived(methods=['GET', 'POST']):
     print('message was received!!!')
 
 
-@socketio.on('my event')
-def handle_my_custom_event(json, methods=['GET', 'POST']):
-    print('received my event: ' + str(json))
-    socketio.emit('my response', json, callback=messageReceived)
+@socketio.on('query')
+def handle_query_event(json, methods=['GET', 'POST']):
+    current_socket_id = request.sid
+    print('received query: ' + str(json))
+    json.update()
+    socketio.emit('query_response', {'current_socket_id': current_socket_id, 'message': 'Your query received. Thanks!'}, callback=messageReceived)
 
 
 if __name__ == "__main__":
