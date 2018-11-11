@@ -8,10 +8,10 @@ build:
 	docker-compose build
 	#docker build -q -t $(PROJECT_NAME):latest $(IMAGE_LOCATION)
 
-run: build
+run:
 	@echo 'Run docker image as a container'
 	docker-compose up
-	#docker run --rm --name $(PROJECT_NAME) -p 5000:5000 $(PROJECT_NAME):latest
+	# docker run --rm --name $(PROJECT_NAME) -p 5000:5000 $(PROJECT_NAME):latest
 		# -d
 
 kill:
