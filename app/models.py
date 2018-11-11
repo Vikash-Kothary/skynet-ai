@@ -45,6 +45,19 @@ class Query(db.Model):
         return '<Queries(query_id={}, title={}, created_by={}, priority={:.2f}, nearest_station={}, nearest_staff_id={}, category={}, extra_data={})>'.format(
             self.query_id, self.title, self.created_by, self.priority, self.nearest_station, self.nearest_staff_id, self.category, self.extra_data)
 
+    def to_json(self):
+        return {
+            "issue_id": self.query_id,
+            "title": self.title,
+            "created_by": self.created_by,
+            "priority": self.priority,
+            "nearest_station": self.nearest_station,
+            "nearest_staff_id": self.nearest_staff_id,
+            "category": self.category,
+            "extra_data": self.extra_data,
+            "resolved": self.resolved
+        }
+
 
 class User(db.Model):
     __tablename__ = 'user_table'

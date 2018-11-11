@@ -9,8 +9,9 @@ from flask import request
 from app import app
 from chatbot import bot
 from random import randint
-
 import mock
+from models import Query
+
 socketio = SocketIO(app)
 
 
@@ -24,18 +25,13 @@ def handle_query_event(json, methods=['GET', 'POST']):
     room_id = 'node1'
     if not any([i.get('created_by') == current_socket_id for i in mock.queries.get(room_id, [])]):
         # create a new query
-        query = {
-            "issue_id": mock.generate_issue_id(),
-            "resolved": 0,
-            "title": json.get('message', 'no title'),
-            "created_by": current_socket_id,
-            "priority": 1,
-            "nearest_station": "station1",
-            "nearest_staff_id": "trainstaff@example.com",
-            "category": "question",
-            "extra_data": {}
-        }
-        mock.queries[room_id].append(query)
+        new_query = Query()
+        new_query.title = json.get('message', 'no title')
+        new_query.created_by = current_socket_id
+        new_query.nearest_station = 'station1'
+        new_query.nearest_staff_id = 'trainstaff@example.com'
+        new_query.category = Query.QUESTION
+        mock.queries[room_id].append(new_query.to_json())
     message = mock.dialogs.get(json.get('message'), 'Your query received. Thanks!')
     socketio.emit('query_response', {'current_socket_id': current_socket_id,
                                      'message': message, 'room_id': room_id}, callback=messageReceived)
