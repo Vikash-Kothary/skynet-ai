@@ -11,6 +11,7 @@ import chatbot
 from random import randint
 import mock
 from models import Query
+import requests as r
 
 socketio = SocketIO(app)
 
@@ -34,7 +35,8 @@ def handle_query_event(json, methods=['GET', 'POST']):
         db.save(new_query)
         mock.queries[room_id].append(new_query.to_json())
     # Confirm received query
-    message = chatbot.confirm_received_query()
+    # message = chatbot.confirm_received_query()
+    message = r.get('http://78e50db0.ngrok.io/?q=' + json.get('message')).text
     socketio.emit('query_response', {'current_socket_id': current_socket_id,
                                      'message': message, 'room_id': room_id}, callback=messageReceived)
 
