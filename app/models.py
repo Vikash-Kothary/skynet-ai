@@ -22,12 +22,15 @@ class Query(db.Model):
     nearest_staff_id = db.Column(db.String)
     category = db.Column(db.Enum(QUESTION, LOST, ASSISTANCE, name='category'))
     extra_data = db.Column(db.String)
+    resolved = db.Column(db.Boolean)
 
-    def __init__(self, title, created_by, priority=None, nearest_station=None, nearest_staff_id=None, category=None, extra_data=None):
+    def __init__(self, title, created_by, priority=None, nearest_station=None, nearest_staff_id=None, category=None, extra_data=None, resolved=None):
         if priority == None:
             priority = 1
         if category == None:
             category == QUESTION
+        if resolved == None:
+            resolved = False
         self.title = title
         self.created_by = created_by
         self.priority = priority
@@ -35,6 +38,7 @@ class Query(db.Model):
         self.nearest_staff_id = nearest_staff_id
         self.category = category
         self.extra_data = extra_data
+        self.resolved = resolved
 
     def __repr__(self):
         """Return an unambiguous representation of a product"""
