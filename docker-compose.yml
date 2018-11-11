@@ -15,7 +15,7 @@ services:
       - NGROK_PROTOCOL=http
 
   app:
-    container_name: info_service
+    container_name: skynet_ai
     build: ./
     ports:
       - "5000:5000"
