@@ -46,7 +46,7 @@ def handle_query_event(json, methods=['GET', 'POST']):
 def handle_query_event(json, methods=['GET', 'POST']):
     current_socket_id = request.sid
     room_id = json.get('room_id')
-    room_queries = [q for q in queries.get(room_id, []) q.get('resolved') == 0]
+    room_queries = [q for q in queries.get(room_id, []) if q.get('resolved') == 0]
     socketio.emit('get_queries_response', {'current_socket_id': current_socket_id, 'queries': room_queries, 'room_id': room_id}, callback=messageReceived)
 
 
