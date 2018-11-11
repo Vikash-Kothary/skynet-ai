@@ -3,11 +3,12 @@
 main.py - Run point
 """
 
-from app import app
+from app import app, db
 from views import views
 from endpoints import api
 from sockets import socketio
 
+db.create_tables()
 app.register_blueprint(views)
 app.register_blueprint(api, url_prefix='/api')
 
