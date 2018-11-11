@@ -25,6 +25,7 @@ def handle_query_event(json, methods=['GET', 'POST']):
     current_socket_id = request.sid
     room_id = 'node1'
     if not any([i.get('created_by') == current_socket_id for i in mock.queries.get(room_id, [])]):
+        pass
         # create a new query
         new_query = Query()
         new_query.title = json.get('message', 'no title')
@@ -32,20 +33,24 @@ def handle_query_event(json, methods=['GET', 'POST']):
         new_query.nearest_station = 'station1'
         new_query.nearest_staff_id = 'trainstaff@example.com'
         new_query.category = Query.QUESTION
+        new_query.room_id = 'node1'
         db.save(new_query)
-        mock.queries[room_id].append(new_query.to_json())
-    # Confirm received query
-    # message = chatbot.confirm_received_query()
+        # mock.queries[room_id].append(new_query.to_json())
+        # Confirm received query
+    print(json)
     message = r.get('http://78e50db0.ngrok.io/?q=' + json.get('message')).text
-    socketio.emit('query_response', {'current_socket_id': current_socket_id,
-                                     'message': message, 'room_id': room_id}, callback=messageReceived)
+    chatbot.confirm_received_query(message)
+    socketio.emit('query_response', new_query.to_json(), callback=messageReceived)
 
 
 @socketio.on('get_queries')
 def handle_query_event(json, methods=['GET', 'POST']):
     current_socket_id = request.sid
     room_id = json.get('room_id')
-    room_queries = [q for q in mock.queries.get(room_id, []) if q.get('resolved') == 0]
+    # room_queries = [q for q in mock.queries.get(room_id, []) if q.get('resolved') == 0]
+    query_result = Query.query.filter_by(
+        room_id='node1', resolved=False).filter(category != Query.QUESTION)
+    room_queries = [query_result[i].to_json() for i in range(query_result.count())]
     socketio.emit('get_queries_response', {'current_socket_id': current_socket_id,
                                            'queries': room_queries, 'room_id': room_id}, callback=messageReceived)
 
