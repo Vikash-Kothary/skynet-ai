@@ -1,0 +1,28 @@
+# Notes
+> Use case: Out of toilet paper. Finds the most relevent member of staff that can resolve the issue. 
+> Use case 2: Passenger needs assitance. Finds out destination path. Finds staff along every switch. Tells them time and location
+> Use case 3: Report broken window. Location and picture. 
+> Edge cases: Danger
+
+- [ ] Filter bvy the location, the train you're on
+- [ ] The control panel doesn't have to bother with it
+- [ ] Priorities: Fatality or injury.
+- [ ] We want to recover the service after a distruption.
+- [ ] All communication is based on a plan
+- [ ] Station control points 
+- [ ] Alot of stuff
+- [ ] No reserved communication on wifi. Streaming video can block images.
+
+- [ ] Key is the communication between guard and station
+- [ ] No communication other than phone
+- [ ] After 8 o'clock no people in service, or all day
+- [ ] Some stations are unstaffed, so you can't help people.
+- [ ] Reduce error by alerting user if a station is unstaffed.
+- [ ] Customer goes straight to the guard.
+- [ ] disruptive pasengers, report drunk people, accessibility
+- [ ] Ping to everyone if delays that affect user
+
+- [ ] Station is on a computer
+- [ ] List the situation, but can repornd
+- [ ] Useful information: location
+- [ ] Simple

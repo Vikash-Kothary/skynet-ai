@@ -6,8 +6,8 @@ sockets.py - socketsio
 
 from flask_socketio import SocketIO, emit
 from flask import request
-from app import app
-from chatbot import bot
+from app import app, db
+import chatbot
 from random import randint
 import mock
 from models import Query
@@ -31,8 +31,10 @@ def handle_query_event(json, methods=['GET', 'POST']):
         new_query.nearest_station = 'station1'
         new_query.nearest_staff_id = 'trainstaff@example.com'
         new_query.category = Query.QUESTION
+        db.save(new_query)
         mock.queries[room_id].append(new_query.to_json())
-    message = mock.dialogs.get(json.get('message'), 'Your query received. Thanks!')
+    # Confirm received query
+    message = chatbot.confirm_received_query()
     socketio.emit('query_response', {'current_socket_id': current_socket_id,
                                      'message': message, 'room_id': room_id}, callback=messageReceived)
 

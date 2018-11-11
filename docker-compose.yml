@@ -10,9 +10,9 @@ services:
     links:
       - app
     environment:
-      - NGROK_AUTH=3fVv5QDD6Wh5jDUg7CtEg_6tsUV7Nz5gy1M6vZA7myF
       - NGROK_PORT=app:5000
       - NGROK_PROTOCOL=http
+      #- NGROK_AUTH=3fVv5QDD6Wh5jDUg7CtEg_6tsUV7Nz5gy1M6vZA7myF
 
   app:
     container_name: skynet_ai

@@ -3,6 +3,8 @@
 mock.py - Seperate mock util functions
 """
 
+from random import randint
+
 
 def generate_issue_id():
     return randint(10000, 999999)
