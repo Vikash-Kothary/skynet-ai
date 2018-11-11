@@ -2,5 +2,3 @@
 """
 __init__.py - Package level variables
 """
-
-from .client import Client
