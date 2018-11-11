@@ -7,14 +7,12 @@ sockets.py - socketsio
 from flask_socketio import SocketIO, emit
 from flask import request
 from app import app
-from bot import bot
-from data import queries, dialogs
+from chatbot import bot
 from random import randint
 
-def generate_issue_id():
-    return randint(10000, 999999)
-
+import mock
 socketio = SocketIO(app)
+
 
 def messageReceived(methods=['GET', 'POST']):
     print('message was received!!!')
@@ -24,30 +22,32 @@ def messageReceived(methods=['GET', 'POST']):
 def handle_query_event(json, methods=['GET', 'POST']):
     current_socket_id = request.sid
     room_id = 'node1'
-    if not any([i.get('created_by') == current_socket_id for i in queries.get(room_id, [])]):
+    if not any([i.get('created_by') == current_socket_id for i in mock.queries.get(room_id, [])]):
         # create a new query
         query = {
-            "issue_id": generate_issue_id(),
+            "issue_id": mock.generate_issue_id(),
             "resolved": 0,
-            "title": json.get('message', 'no title'), 
-            "created_by": current_socket_id, 
-            "priority": 1, 
-            "nearest_station": "station1", 
+            "title": json.get('message', 'no title'),
+            "created_by": current_socket_id,
+            "priority": 1,
+            "nearest_station": "station1",
             "nearest_staff_id": "trainstaff@example.com",
             "category": "question",
             "extra_data": {}
         }
-        queries[room_id].append(query)
-    message = dialogs.get(json.get('message'), 'Your query received. Thanks!')
-    socketio.emit('query_response', {'current_socket_id': current_socket_id, 'message': message, 'room_id': room_id}, callback=messageReceived)
+        mock.queries[room_id].append(query)
+    message = mock.dialogs.get(json.get('message'), 'Your query received. Thanks!')
+    socketio.emit('query_response', {'current_socket_id': current_socket_id,
+                                     'message': message, 'room_id': room_id}, callback=messageReceived)
 
 
 @socketio.on('get_queries')
 def handle_query_event(json, methods=['GET', 'POST']):
     current_socket_id = request.sid
     room_id = json.get('room_id')
-    room_queries = [q for q in queries.get(room_id, []) if q.get('resolved') == 0]
-    socketio.emit('get_queries_response', {'current_socket_id': current_socket_id, 'queries': room_queries, 'room_id': room_id}, callback=messageReceived)
+    room_queries = [q for q in mock.queries.get(room_id, []) if q.get('resolved') == 0]
+    socketio.emit('get_queries_response', {'current_socket_id': current_socket_id,
+                                           'queries': room_queries, 'room_id': room_id}, callback=messageReceived)
 
 
 @socketio.on('resolve')
@@ -59,7 +59,8 @@ def handle_resolve_event(json, methods=['GET', 'POST']):
         current_query = current_queries[0]
         current_query['resolved'] = 1
         message = 'We resolved the issue. Thanks for using the service!'
-        socketio.emit('query_response', {'current_socket_id': current_socket_id, 'message': message, 'room_id': room_id}, callback=messageReceived)
+        socketio.emit('query_response', {'current_socket_id': current_socket_id,
+                                         'message': message, 'room_id': room_id}, callback=messageReceived)
 
 
 if __name__ == "__main__":

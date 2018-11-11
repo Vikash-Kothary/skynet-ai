@@ -3,5 +3,10 @@
 chatbot.py - Natural language interface
 """
 
-if __name__ == '__main__':
-    pass
+
+class Bot:
+
+    def get_response(question):
+        pass
+
+bot = Bot()
