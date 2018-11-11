@@ -4,8 +4,11 @@ actions:
 - utter_greet
 - utter_next_station
 - utter_did_that_help
-- utter_happy
 - utter_goodbye
+- utter_read_recipt
+- utter_confirmation
+- utter_location_query
+- utter_response
 config:
   store_entities_as_slots: true
 entities: []
@@ -16,21 +19,27 @@ intents:
     use_entities: true
 - query_next_station:
     use_entities: true
-- mood_deny:
+- request_wheelchair_access:
     use_entities: true
-- mood_great:
+- query_location_info:
     use_entities: true
-- mood_unhappy:
+- request_issue_response:
     use_entities: true
 slots: {}
 templates:
+  utter_confirmation:
+  - text: okay! I'll get right on that
   utter_did_that_help:
   - text: Did that help you?
   utter_goodbye:
   - text: Bye
   utter_greet:
   - text: Hey! What can I help you with?
-  utter_happy:
-  - text: Great carry on!
+  utter_location_query:
+  - text: At what station do you require assistance?
   utter_next_station:
   - text: The next station is Kings Cross St Pancras
+  utter_read_recipt:
+  - text: A member of staff is handling your request
+  utter_response:
+  - text: Your issue has been resolved by a member of staff

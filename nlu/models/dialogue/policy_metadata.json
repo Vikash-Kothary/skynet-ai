@@ -3,10 +3,19 @@
     "action_listen": {
       "slots": []
     },
-    "utter_next_station": {
+    "utter_goodbye": {
       "slots": []
     },
-    "utter_goodbye": {
+    "utter_read_recipt": {
+      "slots": []
+    },
+    "utter_response": {
+      "slots": []
+    },
+    "utter_greet": {
+      "slots": []
+    },
+    "utter_next_station": {
       "slots": []
     }
   },

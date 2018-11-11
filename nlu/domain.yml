@@ -2,16 +2,19 @@ intents:
   - greet
   - goodbye
   - query_next_station
-  - mood_deny
-  - mood_great
-  - mood_unhappy
+  - request_wheelchair_access
+  - query_location_info
+  - request_issue_response
 
 actions:
 - utter_greet
 - utter_next_station
 - utter_did_that_help
-- utter_happy
 - utter_goodbye
+- utter_read_recipt
+- utter_confirmation
+- utter_location_query
+- utter_response
 
 templates:
   utter_greet:
@@ -23,8 +26,17 @@ templates:
   utter_did_that_help:
   - text: "Did that help you?"
 
-  utter_happy:
-  - text: "Great carry on!"
-
   utter_goodbye:
   - text: "Bye"
+
+  utter_read_recipt:
+  - text: "A member of staff is handling your request"
+
+  utter_confirmation:
+  - text: "okay! I'll get right on that"
+
+  utter_location_query:
+  - text: "At what station do you require assistance?"
+
+  utter_response:
+  - text: "Your issue has been resolved by a member of staff"

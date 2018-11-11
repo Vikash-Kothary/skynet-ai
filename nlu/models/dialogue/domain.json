@@ -2,17 +2,20 @@
   "states": [
     "intent_goodbye",
     "intent_greet",
-    "intent_mood_deny",
-    "intent_mood_great",
-    "intent_mood_unhappy",
+    "intent_query_location_info",
     "intent_query_next_station",
+    "intent_request_issue_response",
+    "intent_request_wheelchair_access",
     "prev_action_listen",
     "prev_action_restart",
     "prev_action_default_fallback",
     "prev_utter_greet",
     "prev_utter_next_station",
     "prev_utter_did_that_help",
-    "prev_utter_happy",
-    "prev_utter_goodbye"
+    "prev_utter_goodbye",
+    "prev_utter_read_recipt",
+    "prev_utter_confirmation",
+    "prev_utter_location_query",
+    "prev_utter_response"
   ]
 }

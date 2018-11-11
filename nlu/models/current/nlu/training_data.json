@@ -43,7 +43,7 @@
       },
       {
         "intent": "query_next_station",
-        "text": "next station"
+        "text": "the next station"
       },
       {
         "intent": "query_next_station",
@@ -54,100 +54,36 @@
         "text": "following station"
       },
       {
-        "intent": "mood_deny",
-        "text": "no"
+        "intent": "location",
+        "text": "where"
       },
       {
-        "intent": "mood_deny",
-        "text": "never"
+        "intent": "location",
+        "text": "how far"
       },
       {
-        "intent": "mood_deny",
-        "text": "I don't think so"
+        "intent": "location",
+        "text": "distance"
       },
       {
-        "intent": "mood_deny",
-        "text": "don't like that"
+        "intent": "request_wheelchair_access",
+        "text": "wheelchair"
       },
       {
-        "intent": "mood_deny",
-        "text": "no way"
+        "intent": "request_wheelchair_access",
+        "text": "wheel chair"
       },
       {
-        "intent": "mood_deny",
-        "text": "not really"
+        "intent": "request_wheelchair_access",
+        "text": "disabled access"
       },
       {
-        "intent": "mood_great",
-        "text": "perfect"
+        "intent": "request_wheelchair_access",
+        "text": "access ramp"
       },
       {
-        "intent": "mood_great",
-        "text": "very good"
-      },
-      {
-        "intent": "mood_great",
-        "text": "great"
-      },
-      {
-        "intent": "mood_great",
-        "text": "amazing"
-      },
-      {
-        "intent": "mood_great",
-        "text": "wonderful"
-      },
-      {
-        "intent": "mood_great",
-        "text": "I am feeling very good"
-      },
-      {
-        "intent": "mood_great",
-        "text": "I am great"
-      },
-      {
-        "intent": "mood_great",
-        "text": "I'm good"
-      },
-      {
-        "intent": "mood_unhappy",
-        "text": "sad"
-      },
-      {
-        "intent": "mood_unhappy",
-        "text": "very sad"
-      },
-      {
-        "intent": "mood_unhappy",
-        "text": "unhappy"
-      },
-      {
-        "intent": "mood_unhappy",
-        "text": "bad"
-      },
-      {
-        "intent": "mood_unhappy",
-        "text": "very bad"
-      },
-      {
-        "intent": "mood_unhappy",
-        "text": "awful"
-      },
-      {
-        "intent": "mood_unhappy",
-        "text": "terrible"
-      },
-      {
-        "intent": "mood_unhappy",
-        "text": "not very good"
-      },
-      {
-        "intent": "mood_unhappy",
-        "text": "extremly sad"
-      },
-      {
-        "intent": "mood_unhappy",
-        "text": "so sad"
+        "intent": "request_issue_response",
+        "text": "Issue has been resolved"
       }
     ],
     "regex_features": [],

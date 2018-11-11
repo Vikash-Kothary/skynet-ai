@@ -13,36 +13,20 @@
 - see you later
 
 ## intent:query_next_station
-- next station
+- the next station
 - upcoming station
 - following station
 
-## intent:mood_deny
-- no
-- never
-- I don't think so
-- don't like that
-- no way
-- not really
+## intent:location
+- where
+- how far
+- distance
 
-## intent:mood_great
-- perfect
-- very good
-- great
-- amazing
-- wonderful
-- I am feeling very good
-- I am great
-- I'm good
+## intent:request_wheelchair_access
+- wheelchair
+- wheel chair
+- disabled access
+- access ramp
 
-## intent:mood_unhappy
-- sad
-- very sad
-- unhappy
-- bad
-- very bad
-- awful
-- terrible
-- not very good
-- extremly sad
-- so sad
+## intent:request_issue_response
+- Issue has been resolved
