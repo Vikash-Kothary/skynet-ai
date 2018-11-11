@@ -6,7 +6,7 @@ models.py - Defines models to represent data
 from app import db
 
 
-class Queries(db.Model):
+class Query(db.Model):
     __tablename__ = 'query_table'
 
     # Category
