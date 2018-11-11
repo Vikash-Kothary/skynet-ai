@@ -1,8 +1,7 @@
 PROJECT_NAME := skynet_ai
-ENV_NAME := skynet_ai_env
 IMAGE_LOCATION := .
 
-.PHONY: build run kill debug tests clear-docker
+.PHONY: build run kill debug tests clear-docker url
 
 build:
 	@echo 'Build docker image from Dockerfile'
